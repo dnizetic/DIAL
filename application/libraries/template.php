@@ -354,6 +354,13 @@ class CI_Template {
 
     // --------------------------------------------------------------------
 
+    function is_secure() {
+      return
+        (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+        || $_SERVER['SERVER_PORT'] == 443;
+    }
+    
+    
     /**
      * Dynamically include javascript in the template
      *
@@ -374,7 +381,7 @@ class CI_Template {
 
         switch ($type) {
             case 'import':
-                if (is_https()) {
+                if ($this->is_secure()) {
                     $filepath = secure_base_url() . $script;
                 } else {
                     $filepath = base_url() . $script;
@@ -430,7 +437,7 @@ class CI_Template {
 
         $this->CI->load->helper('url');
 
-        if (is_https()) {
+        if ($this->is_secure()) {
             $filepath = secure_base_url() . $style;
         } else {
             $filepath = base_url() . $style;
