@@ -98,6 +98,17 @@ class Auth extends CI_Controller {
         $this->_show_message($this->lang->line('auth_message_logged_out'));
     }
 
+    
+    function validate_password($password)
+    {
+        //Contains atleast 1 letter and 1 number
+        if (preg_match('/[A-Za-z]/', $password) && preg_match('/[0-9]/', $password)) {
+            return true;
+        }
+        return false;
+    }
+    
+    
     /**
      * Register user on the site
      *
@@ -116,8 +127,13 @@ class Auth extends CI_Controller {
                 $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean|min_length[' . $this->config->item('username_min_length', 'tank_auth') . ']|max_length[' . $this->config->item('username_max_length', 'tank_auth') . ']|alpha_dash');
             }
             $this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email');
-            $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|min_length[' . $this->config->item('password_min_length', 'tank_auth') . ']|max_length[' . $this->config->item('password_max_length', 'tank_auth') . ']|alpha_dash');
+            $this->form_validation->set_rules('first_name', 'First name', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('last_name', 'Last name', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|min_length[' . 
+                    $this->config->item('password_min_length', 'tank_auth') . ']|max_length[' . 
+                    $this->config->item('password_max_length', 'tank_auth') . ']|alpha_dash|callback_validate_password');
             $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean|matches[password]');
+            $this->form_validation->set_message('validate_password','Password must contain atleast 1 letter and atleast 1 number.');
 
             $captcha_registration = $this->config->item('captcha_registration', 'tank_auth');
             $use_recaptcha = $this->config->item('use_recaptcha', 'tank_auth');
