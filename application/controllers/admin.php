@@ -11,6 +11,7 @@ class Admin extends CI_Controller {
         $this->load->helper(array('form', 'url'));
         $this->load->library('tank_auth');
         $this->load->library('form_validation');
+        $this->load->library('message');
         $this->load->model('users_model');
 
         //User must be logged in, and must be admin
@@ -38,6 +39,7 @@ class Admin extends CI_Controller {
             $this->users_model->set_username($this->form_validation->set_value('username'));
             $this->users_model->set_id($user_id);
             $this->users_model->update();
+            $this->message->set('success', "User updated successfuly.");
             redirect('admin/index');
         }
 
@@ -53,6 +55,7 @@ class Admin extends CI_Controller {
     function delete($user_id) {
         $this->users_model->set_id($user_id);
         $this->users_model->delete();
+        $this->message->set('success', "User deleted successfuly.");
         redirect('admin/index');
     }
 
@@ -60,6 +63,7 @@ class Admin extends CI_Controller {
         $this->users_model->set_activated($activated);
         $this->users_model->set_id($user_id);
         $this->users_model->update();
+        $this->message->set('success', "User status updated to " . $activated . '.');
         redirect('/admin/index');
     }
 
