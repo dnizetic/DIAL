@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class Admin extends MY_Controller {
 
     function __construct() {
         parent::__construct();
@@ -22,7 +22,7 @@ class Admin extends CI_Controller {
 
     function index() {
         $data['users'] = $this->users_model->select(array('is_admin' => null));
-        $this->load->view('admin/index', $data);
+        $this->call_template('admin/index', $data);
     }
 
     function edit($user_id) {
@@ -49,7 +49,7 @@ class Admin extends CI_Controller {
         }
         $data['user'] = $users[0];
 
-        $this->load->view('admin/edit', $data);
+        $this->call_template('admin/edit', $data);
     }
 
     function delete($user_id) {
