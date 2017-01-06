@@ -131,10 +131,23 @@ class Auth extends CI_Controller {
             $data['errors'] = array();
 
             $email_activation = $this->config->item('email_activation', 'tank_auth');
-
-            if ($this->form_validation->run()) {        // validation ok
-                if (!is_null($data = $this->tank_auth->create_user(
-                                $use_username ? $this->form_validation->set_value('username') : '', $this->form_validation->set_value('email'), $this->form_validation->set_value('password'), $email_activation))) {         // success
+            
+            
+            if ($this->form_validation->run()) {        
+                // validation ok
+                
+                $extra_data = array(
+                    'first_name' => $this->input->post('first_name'),
+                    'last_name' => $this->input->post('last_name'),
+                );
+                
+                $data = $this->tank_auth->create_user($use_username ? $this->form_validation->set_value('username') : '', 
+                        $this->form_validation->set_value('email'), 
+                        $this->form_validation->set_value('password'), 
+                        $email_activation,
+                        $extra_data);
+                
+                if (!is_null($data)) {         // success
                     $data['site_name'] = $this->config->item('website_name', 'tank_auth');
 
                     if ($email_activation) {         // send "activate" email

@@ -1,5 +1,5 @@
 <?php if ($username): ?>
-    Hi, <strong><?php echo $username; ?></strong>! 
+    Hi, <strong><?php echo $username; ?></strong>! <br/>
 <?php endif; ?>
 Welcome to the dashboard.
 
