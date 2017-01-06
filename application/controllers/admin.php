@@ -41,7 +41,6 @@ class Admin extends CI_Controller {
             redirect('admin/index');
         }
 
-
         $users = $this->users_model->select(array('id' => $user_id));
         if (empty($users)) {
             redirect('admin/index');
@@ -52,11 +51,12 @@ class Admin extends CI_Controller {
     }
 
     function delete($user_id) {
-        
+        $this->users_model->set_id($user_id);
+        $this->users_model->delete();
+        redirect('admin/index');
     }
 
     function status($activated, $user_id) {
-
         $this->users_model->set_activated($activated);
         $this->users_model->set_id($user_id);
         $this->users_model->update();
