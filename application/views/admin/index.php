@@ -24,7 +24,7 @@
                     <?php endif; ?>
                     <?php echo anchor('/admin/edit/' . $user->id, 'Edit'); ?>
 
-                    <?php echo anchor('/admin/delete/' . $user->id, 'Delete'); ?>
+                    <a href="/admin/delete/<?php echo $user->id; ?>" onclick="return confirm('Delete user?');">Delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>
