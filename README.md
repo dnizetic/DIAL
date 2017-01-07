@@ -7,6 +7,7 @@ Setting up the project
 
 Setting up virtual hosts file (/etc/apache2/sites-available/005-dial.conf)
 
+```
 <VirtualHost *:80>
     DocumentRoot "/var/www/DIAL"
     ServerName www.dial.com
@@ -16,8 +17,10 @@ Setting up virtual hosts file (/etc/apache2/sites-available/005-dial.conf)
 </Directory>
 
 </VirtualHost>
-
+```
 
 Setting up hosts file
 
+```
 127.0.0.1 www.dial.com
+```
