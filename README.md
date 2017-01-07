@@ -1,6 +1,7 @@
 Cloning project
 
-```cd /var/www (or htdocs folder on windows)
+```
+cd /var/www (or htdocs folder on windows)
 
 git clone https://github.com/dnizetic/DIAL.git
 ```
