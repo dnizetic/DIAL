@@ -51,6 +51,7 @@ class Users extends CI_Model
 	{
 		$this->db->where('LOWER(username)=', strtolower($login));
 		$this->db->or_where('LOWER(email)=', strtolower($login));
+                $this->db->where('activated', 1);
 
 		$query = $this->db->get($this->table_name);
 		if ($query->num_rows() == 1) return $query->row();
@@ -66,6 +67,7 @@ class Users extends CI_Model
 	function get_user_by_username($username)
 	{
 		$this->db->where('LOWER(username)=', strtolower($username));
+                $this->db->where('activated', 1);
 
 		$query = $this->db->get($this->table_name);
 		if ($query->num_rows() == 1) return $query->row();
@@ -81,6 +83,7 @@ class Users extends CI_Model
 	function get_user_by_email($email)
 	{
 		$this->db->where('LOWER(email)=', strtolower($email));
+                $this->db->where('activated', 1);
 
 		$query = $this->db->get($this->table_name);
 		if ($query->num_rows() == 1) return $query->row();
