@@ -9,13 +9,12 @@ class Admin extends MY_Controller {
         parent::__construct();
 
         $this->load->helper(array('form', 'url'));
-        $this->load->library('tank_auth');
         $this->load->library('form_validation');
         $this->load->library('message');
         $this->load->model('users_model');
 
-        //User must be logged in, and must be admin
-        if (!$this->tank_auth->is_logged_in() || !$this->tank_auth->is_admin()) {
+        //User must be admin
+        if (!$this->is_admin()) {
             redirect('/');
         }
     }

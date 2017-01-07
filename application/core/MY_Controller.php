@@ -5,6 +5,7 @@ class MY_Controller extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->library('template');
+        $this->load->library('tank_auth');
     }
 
     protected function call_template($view_path, $data) {
@@ -14,4 +15,12 @@ class MY_Controller extends CI_Controller {
         
     }
 
+    protected function is_admin() {
+        return $this->tank_auth->is_logged_in() && $this->tank_auth->is_admin();
+    }
+    
+    protected function is_logged_in() {
+        return $this->tank_auth->is_logged_in();
+    }
+    
 }
