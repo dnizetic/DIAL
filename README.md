@@ -1,10 +1,6 @@
 Cloning project
 
-```
-cd /var/www (or htdocs folder on windows)
-
-git clone https://github.com/dnizetic/DIAL.git
-```
+` git clone https://github.com/dnizetic/DIAL.git `
 
 Pulling latest changes
 
