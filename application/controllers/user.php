@@ -43,7 +43,6 @@ class User extends MY_Controller {
         }
         $data['user'] = $users[0];
         
-        
         $this->call_template('user/index', $data);
     }
 
