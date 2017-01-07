@@ -1,3 +1,14 @@
+Cloning project
+
+```cd /var/www (or htdocs folder on windows)
+
+git clone https://github.com/dnizetic/DIAL.git
+```
+
+Pulling latest changes
+
+`git pull origin master`
+
 Setting up the project
 
 1) Create database `dial`
