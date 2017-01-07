@@ -1,11 +1,11 @@
 Setting up the project
 
-1) Create database 'dial'
+1) Create database `dial`
 
-2) Import sql from sql/dial.sql
+2) Import sql from `sql/dial.sql`
 
 
-Setting up virtual hosts file (/etc/apache2/sites-available/005-dial.conf)
+Setting up virtual hosts file (`/etc/apache2/sites-available/005-dial.conf`)
 
 ```
 <VirtualHost *:80>
