@@ -4,7 +4,7 @@
     <?php endif; ?>
 <?php endif; ?>
 
-Welcome to the dashboard.
+Welcome to the index page.
 
 <br/><br/>
 
