@@ -16,7 +16,7 @@ class Home extends MY_Controller {
 
         $data['user_id'] = $this->tank_auth->get_user_id();
         $data['username'] = $this->tank_auth->get_username();
-        $this->call_template('welcome', $data);
+        $this->call_template('home/index', $data);
     }
 
 }
