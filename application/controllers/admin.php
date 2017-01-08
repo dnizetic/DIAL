@@ -53,16 +53,24 @@ class Admin extends MY_Controller {
 
     function delete($user_id) {
         $this->users_model->set_id($user_id);
-        $this->users_model->delete();
-        $this->message->set('success', "User deleted successfuly.");
+        $affected = $this->users_model->delete();
+        if($affected > 0) {
+            $this->message->set('success', "User deleted successfuly.");
+        } else {
+            $this->message->set('error', "Error! User not deleted. Please contact the administrator.");
+        }
         redirect('admin/index');
     }
 
     function status($activated, $user_id) {
         $this->users_model->set_activated($activated);
         $this->users_model->set_id($user_id);
-        $this->users_model->update();
-        $this->message->set('success', "User status updated to " . $activated . '.');
+        $affected = $this->users_model->update();
+        if($affected > 0) {
+            $this->message->set('success', "User status updated to " . $activated . '.');
+        } else {
+            $this->message->set('error', "Error! User not updated. Please contact the administrator.");
+        }
         redirect('/admin/index');
     }
 
