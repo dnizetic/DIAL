@@ -17,6 +17,9 @@ class Admin extends MY_Controller {
         if (!$this->is_admin()) {
             redirect('/');
         }
+        
+        $this->breadcrumbs->push('Home', "/");
+        $this->breadcrumbs->push('Admin', "/admin/index");
     }
 
     function index() {
@@ -25,6 +28,7 @@ class Admin extends MY_Controller {
     }
 
     function edit($user_id) {
+        $this->breadcrumbs->push('Edit user', '/');
 
         $this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email');
         $this->form_validation->set_rules('first_name', 'First name', 'trim|required|xss_clean');
@@ -42,11 +46,11 @@ class Admin extends MY_Controller {
             redirect('admin/index');
         }
 
-        $users = $this->users_model->select(array('id' => $user_id));
-        if (empty($users)) {
+        $user = $this->users_model->select(array('id' => $user_id));
+        if (empty($user)) {
             redirect('admin/index');
         }
-        $data['user'] = $users[0];
+        $data['user'] = $user[0];
 
         $this->call_template('admin/edit', $data);
     }

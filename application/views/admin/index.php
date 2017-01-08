@@ -1,4 +1,3 @@
-<?php echo anchor('/', 'Back'); ?> <br/>
 <?php echo $this->message->display() ?>
 <p>List of users</p>
 <table>

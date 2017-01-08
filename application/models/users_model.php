@@ -237,7 +237,7 @@ class Users_model extends CI_Model {
         $query = $this->db->get('users');
         return $query->result();
     }
-
+    
     // **********************
     // Get users by id
     // **********************

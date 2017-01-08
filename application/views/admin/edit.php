@@ -1,5 +1,3 @@
-<?php echo anchor('/admin/index', 'Back'); ?> <br/>
-
 <p>Edit user: <?php echo $user->username; ?></p>
 
 <?php
