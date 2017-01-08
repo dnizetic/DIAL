@@ -39,7 +39,8 @@ $template_path = '/web/smartadmin/';
         <link rel="icon" href="<?php echo $template_path; ?>img/favicon/favicon.ico" type="image/x-icon">
 
         <!-- #GOOGLE FONT -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+        <!-- to be saved locally -->
+        <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">-->
 
         <!-- #APP SCREEN / ICONS -->
         <!-- Specifying a Webpage Icon for Web Clip 
@@ -74,15 +75,13 @@ $template_path = '/web/smartadmin/';
 
         <div id="main" role="main">
 
-            <?php //$this->load->view('template/_breadcrumbs') ?>
-
+            <?php $this->load->view('template/_breadcrumbs') ?>
 
             <div id="content">
                 <?php echo $content; ?>
             </div>
 
         </div>
-
 
         <?php //$this->load->view('template/_footer') ?>
 
