@@ -18,6 +18,9 @@ class User extends MY_Controller {
         if (!$this->is_logged_in) {
             redirect('/');
         }
+        
+        $this->breadcrumbs->push('Home', "/");
+        $this->breadcrumbs->push('User', "/user/index");
     }
 
     function index() {

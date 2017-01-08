@@ -1,5 +1,3 @@
-<?php echo anchor('/', 'Back'); ?> <br/>
-
 Welcome to user dashboard, <b><?php echo $user->username; ?></b> <br/> <br/>
 
 <?php echo $this->message->display() ?> <br/><br/>
