@@ -7,17 +7,17 @@ class User extends MY_Controller {
 
     function __construct() {
         parent::__construct();
-
-        //User must be logged in. Accessible to admins and users
-        if (!$this->tank_auth->is_logged_in()) {
-            redirect('/');
-        }
         
         $this->load->helper(array('form', 'url'));
         $this->load->library('tank_auth');
         $this->load->library('form_validation');
         $this->load->library('message');
         $this->load->model('users_model');
+        
+        //User must be logged in. Accessible to admins and users
+        if (!$this->is_logged_in) {
+            redirect('/');
+        }
     }
 
     function index() {

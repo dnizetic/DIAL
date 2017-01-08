@@ -8,15 +8,15 @@ class Admin extends MY_Controller {
     function __construct() {
         parent::__construct();
 
-        //User must be admin
-        if (!$this->is_admin()) {
-            redirect('/');
-        }
-        
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->library('message');
         $this->load->model('users_model');
+        
+        //User must be admin
+        if (!$this->is_admin()) {
+            redirect('/');
+        }
     }
 
     function index() {
