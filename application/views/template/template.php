@@ -66,7 +66,25 @@ $template_path = '/web/smartadmin/';
 
 
     <body>
-        <?php echo $content; ?>
+
+        <?php //$this->load->view('template/_header') ?>
+
+        <?php //$this->load->view('template/_left_pannel') ?>
+
+
+        <div id="main" role="main">
+
+            <?php //$this->load->view('template/_breadcrumbs') ?>
+
+
+            <div id="content">
+                <?php echo $content; ?>
+            </div>
+
+        </div>
+
+
+        <?php //$this->load->view('template/_footer') ?>
 
         <?php echo $_scripts; ?>
     </body>
