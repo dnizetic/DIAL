@@ -14,7 +14,7 @@ class User extends MY_Controller {
         $this->load->library('message');
         $this->load->model('users_model');
         
-        //User must be logged in. Accessible to admins and users
+        //User must be logged in. Accessible to admins and users.
         if (!$this->is_logged_in) {
             redirect('/');
         }
