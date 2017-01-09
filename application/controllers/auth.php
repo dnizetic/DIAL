@@ -99,7 +99,8 @@ class Auth extends MY_Controller {
     function logout() {
         $this->tank_auth->logout();
 
-        $this->_show_message($this->lang->line('auth_message_logged_out'));
+        redirect('');
+        //$this->_show_message($this->lang->line('auth_message_logged_out'));
     }
 
     

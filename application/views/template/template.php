@@ -1,5 +1,6 @@
 <?php
 $template_path = $this->template_path;
+$portal_page = !$this->is_logged_in ? true : false;
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,8 +55,15 @@ $template_path = $this->template_path;
         <link rel="apple-touch-startup-image" href="<?php echo $template_path; ?>img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
         <link rel="apple-touch-startup-image" href="<?php echo $template_path; ?>img/splash/iphone.png" media="screen and (max-device-width: 320px)">
 
-         <?php echo $_styles; ?>
-        
+        <?php echo $_styles; ?>
+        <?php if ($portal_page): ?>
+            <style type="text/css">
+                #ribbon, .page-footer {
+                    display: none;
+                }
+            </style>
+        <?php endif; ?>
+
 
         <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -65,18 +73,20 @@ $template_path = $this->template_path;
             }
         </script>
     </head>
-    
 
-    <body>
+    <body class="<?php echo $portal_page ? 'no-menu' : ''; ?>">
 
         <?php $this->load->view('template/_header', array('template_path' => $template_path)) ?>
+
 
         <?php $this->load->view('template/_left_pannel') ?>
 
 
         <div id="main" role="main">
 
+
             <?php $this->load->view('template/_breadcrumbs') ?>
+
 
             <div id="content">
                 <?php echo $content; ?>
@@ -208,7 +218,6 @@ $template_path = $this->template_path;
             })
 
         </script>
-
 
         <?php echo $_scripts; ?>
     </body>

@@ -15,6 +15,15 @@ class Home extends MY_Controller {
 
     function index() {
         
+        //Inaccessible to authorized users
+        if($this->is_logged_in) {
+            if($this->is_admin) {
+                redirect('admin/index');
+            } else {
+                redirect('user/index');
+            }
+        }
+        
         $this->breadcrumbs->push('Home', "/");
         
         $data['user_id'] = $this->tank_auth->get_user_id();

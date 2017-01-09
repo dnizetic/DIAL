@@ -79,15 +79,11 @@
     <!-- pulled right: nav area -->
     <div class="pull-right">
 
-        <!-- collapse menu button -->
-        <div id="hide-menu" class="btn-header pull-right">
-            <span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
-        </div>
-        <!-- end collapse menu -->
+
 
         <!-- #MOBILE -->
         <!-- Top menu profile link : this shows only when top menu is active -->
-        <ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
+<!--        <ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
             <li class="">
                 <a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown"> 
                     <img src="<?php echo $template_path; ?>img/avatars/sunny.png" alt="John Doe" class="online" />  
@@ -114,12 +110,12 @@
                     </li>
                 </ul>
             </li>
-        </ul>
+        </ul>-->
 
         <!-- logout button -->
         <?php if ($this->is_logged_in): ?>
             <div id="logout" class="btn-header transparent pull-right">
-                <span> <a href="auth/logout" title="Logout"><i class="fa fa-sign-out"></i></a> </span>
+                <span> <a href="/auth/logout" title="Logout"><i class="fa fa-sign-out"></i></a> </span>
             </div>
         <?php else: ?>
             <!-- login button -->
@@ -129,7 +125,13 @@
             <!-- end login button -->
         <?php endif; ?>
         <!-- end logout button -->
-
+        
+        
+        <!-- collapse menu button -->
+        <div id="hide-menu" class="btn-header pull-right">
+            <span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+        </div>
+        <!-- end collapse menu -->
 
 
         <!-- search mobile button (this is hidden till mobile view port) -->
