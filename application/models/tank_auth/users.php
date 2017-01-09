@@ -47,11 +47,14 @@ class Users extends CI_Model
 	 * @param	string
 	 * @return	object
 	 */
-	function get_user_by_login($login)
+	function get_user_by_login($login, $user_type = null)
 	{
 		$this->db->where('LOWER(username)=', strtolower($login));
 		$this->db->or_where('LOWER(email)=', strtolower($login));
                 $this->db->where('activated', 1);
+                if(is_numeric($user_type)) {
+                    $this->db->where('user_type', $user_type);
+                }
 
 		$query = $this->db->get($this->table_name);
 		if ($query->num_rows() == 1) return $query->row();

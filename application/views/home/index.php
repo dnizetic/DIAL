@@ -175,7 +175,6 @@
 
 <div id="admin_dialog" title="Admin login" style="display: none">
 
-
     <div class="hr hr-12 hr-double"></div>
 
     <form>
@@ -191,6 +190,8 @@
                 <input class="form-control" placeholder="Password" type="password" value="mypassword">
             </div>
         </fieldset>
+        
+        <?php echo form_hidden('user_type', 2); ?>
     </form>
 
 </div>
@@ -208,6 +209,7 @@
             autoOpen: false,
             width: 400,
             resizable: false,
+            draggable: false,
             modal: true,
             buttons: [{
                     html: "<i class='fa fa-times'></i>&nbsp; Close",

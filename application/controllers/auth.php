@@ -59,13 +59,17 @@ class Auth extends MY_Controller {
             $data['errors'] = array();
 
             if ($this->form_validation->run()) {        // validation ok
-                if ($this->tank_auth->login($this->form_validation->set_value('login'), $this->form_validation->set_value('password'), $this->form_validation->set_value('remember'), $data['login_by_username'], $data['login_by_email'])) { 
-                    //Successful login
+                
+                $user_type = $this->input->post('user_type');
+                
+                if ($this->tank_auth->login($this->form_validation->set_value('login'), $this->form_validation->set_value('password'), $this->form_validation->set_value('remember'), $data['login_by_username'], $data['login_by_email'], $user_type)) { 
+                    
                     if($this->tank_auth->is_admin()) {
                         redirect('admin/index');
                     } else {
                         redirect('user/index');
                     }
+                    
                 } else {
                     $errors = $this->tank_auth->get_error_message();
                     if (isset($errors['banned'])) {        // banned user

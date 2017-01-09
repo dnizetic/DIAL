@@ -1,6 +1,6 @@
 <?php
 $template_path = $this->template_path;
-$portal_page = !$this->is_logged_in ? true : false;
+$portal_page = isset($hide_navigation) ? true : false;
 ?>
 <!DOCTYPE html>
 <html>

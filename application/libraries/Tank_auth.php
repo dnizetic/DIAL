@@ -45,7 +45,7 @@ class Tank_auth {
      * @param	bool
      * @return	bool
      */
-    function login($login, $password, $remember, $login_by_username, $login_by_email) {
+    function login($login, $password, $remember, $login_by_username, $login_by_email, $user_type = null) {
         if ((strlen($login) > 0) AND ( strlen($password) > 0)) {
 
             // Which function to use to login (based on config)
@@ -57,7 +57,7 @@ class Tank_auth {
                 $get_user_func = 'get_user_by_email';
             }
 
-            if (!is_null($user = $this->ci->users->$get_user_func($login))) { // login ok
+            if (!is_null($user = $this->ci->users->$get_user_func($login, $user_type))) { // login ok
                 // Does password match hash in database?
                 $hasher = new PasswordHash(
                         $this->ci->config->item('phpass_hash_strength', 'tank_auth'), $this->ci->config->item('phpass_hash_portable', 'tank_auth'));
