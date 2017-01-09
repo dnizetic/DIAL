@@ -70,6 +70,19 @@
                                         Remember me </label>
                                 </div>
                             </div>
+                            <?php $login_message = $this->message->display(); ?>
+                            <?php if ($login_message): ?>
+                                <div class="form-group">
+                                    <div class="alert alert-danger fade in">
+                                        <button class="close" data-dismiss="alert">
+                                            ×
+                                        </button>
+                                        <i class="fa-fw fa fa-times"></i>
+                                        <strong>Error!</strong> <span class=""><?php echo $login_message; ?></span>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
                         </fieldset>
                         <div class="form-actions">
                             <button class="btn btn-primary btn-lg" type="submit">
@@ -77,6 +90,7 @@
                                 Login
                             </button>
                         </div>
+                        <?php //echo form_hidden('user_type', 1); ?>
                         <?php echo form_close(); ?>
 
                     </div>
@@ -165,9 +179,6 @@
 
 
         </article>
-
-
-
     </div>
 
 </section>
@@ -177,22 +188,37 @@
 
     <div class="hr hr-12 hr-double"></div>
 
-    <form>
+    <?php echo form_open('/auth/ajax_login'); ?>
 
-        <fieldset>
-            <input name="authenticity_token" type="hidden">
-            <div class="form-group">
-                <label>Login or email</label>
-                <input class="form-control" placeholder="Text field" type="text">
+    <fieldset>
+        <div class="form-group">
+            <label>Login or email</label>
+            <input class="form-control" type="text" name="login" value="" maxlength="80" size="30">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input class="form-control" type="password" name="password" value="" size="30">
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="remember" value="1">
+                    Remember me </label>
             </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input class="form-control" placeholder="Password" type="password" value="mypassword">
+        </div>
+        <div class="form-group admin_login_errors" style="display: none">
+            <div class="alert alert-danger fade in">
+                <button class="close" data-dismiss="alert">
+                    ×
+                </button>
+                <i class="fa-fw fa fa-times"></i>
+                <strong>Error!</strong> <span class="admin_error_message"></span>
             </div>
-        </fieldset>
-        
-        <?php echo form_hidden('user_type', 2); ?>
-    </form>
+        </div>
+    </fieldset>
+
+    <?php echo form_hidden('user_type', 2); ?>
+    <?php echo form_close(); ?>
 
 </div>
 
@@ -220,14 +246,31 @@
                     }
                 }, {
 
-                    html: "<i class='fa fa-plus'></i>&nbsp; Login",
-                    "class": "btn btn-danger",
+                    html: "<i class='fa fa-save'></i>&nbsp; Login",
+                    "class": "btn admin_login_btn btn-default",
                     click: function () {
-                        //addTab();
-                        $(this).dialog("close");
+
+                        $('.admin_login_errors').hide();
+                        $.ajax({
+                            type: "POST",
+                            data: $('#admin_dialog form').serialize(),
+                            url: "/auth/ajax_login",
+                            dataType: 'json',
+                            success: function (response) {
+                                if (response.status == 0) {
+                                    $('.admin_login_errors').show();
+                                    $('.admin_error_message').text(response.errors_msg);
+                                }
+                                if (response.status == 1) {
+                                    window.location.href = '/admin/index';
+                                }
+                            }
+                        });
                     }
                 }]
         });
+
+
     });
 
 
@@ -236,7 +279,7 @@
 
 <!--<?php if ($this->is_logged_in): ?>
     <?php if ($username): ?>
-                                                                                                                                                Hi, <strong><?php echo $username; ?></strong>! <br/>
+                                                                                                                                                                                                                                                                                        Hi, <strong><?php echo $username; ?></strong>! <br/>
     <?php endif; ?>
 <?php endif; ?>
 

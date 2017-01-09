@@ -11,6 +11,7 @@ class Home extends MY_Controller {
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->library('tank_auth');
+        $this->load->library('message');
     }
 
     function index() {
