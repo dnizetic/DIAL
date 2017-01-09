@@ -5,6 +5,7 @@ class MY_Controller extends CI_Controller {
     var $is_logged_in = FALSE;
     var $is_admin = FALSE;
     var $is_user = FALSE;
+    var $template_path = '/web/smartadmin/';
 
     function __construct() {
         parent::__construct();
