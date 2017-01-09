@@ -38,7 +38,7 @@ CREATE TABLE `ci_sessions` (
 
 LOCK TABLES `ci_sessions` WRITE;
 /*!40000 ALTER TABLE `ci_sessions` DISABLE KEYS */;
-INSERT INTO `ci_sessions` VALUES ('b652b6a1cf20b6fddadb4396d310021a','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.100 Safari/537.36',1483809642,'a:5:{s:9:\"user_data\";s:0:\"\";s:7:\"user_id\";s:1:\"8\";s:8:\"username\";s:5:\"admin\";s:6:\"status\";s:1:\"1\";s:8:\"is_admin\";s:1:\"1\";}');
+INSERT INTO `ci_sessions` VALUES ('14b209e7495fd9447a22eb13a328048f','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.100 Safari/537.36',1483974672,'');
 /*!40000 ALTER TABLE `ci_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +55,7 @@ CREATE TABLE `login_attempts` (
   `login` varchar(50) COLLATE utf8_bin NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,6 +145,7 @@ CREATE TABLE `users` (
   `last_ip` varchar(40) COLLATE utf8_bin NOT NULL,
   `last_login` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `is_admin` tinyint(1) DEFAULT NULL,
+  `user_type` int(5) DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -157,7 +158,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (8,'admin','admin','admin','$2a$08$6NfXJTQTXwOisiNqVK7Mn.086f.q0J/riIh3JEJsKskyLsXF2MPq6','denis_nizetic@hotmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'127.0.0.1','2017-01-07 18:14:52',1,'2017-01-06 16:44:42','2017-01-07 17:14:52'),(10,'Denis 23','Nizetic','dnizetic','$2a$08$IMumT27SSp1Yu4W9CtPsP.PAD8x7Mmfwp5kSc2OnbAo7bRzOWIZFa','dnizetic851@gmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'127.0.0.1','2017-01-07 17:51:28',NULL,'2017-01-07 16:01:26','2017-01-07 16:59:47');
+INSERT INTO `users` VALUES (8,'admin','admin','admin','$2a$08$6NfXJTQTXwOisiNqVK7Mn.086f.q0J/riIh3JEJsKskyLsXF2MPq6','denis_nizetic@hotmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'127.0.0.1','2017-01-08 17:02:30',1,2,'2017-01-06 16:44:42','2017-01-09 15:10:11'),(10,'Denis 23 32 32','Nizetic 2','dnizetic','$2a$08$IMumT27SSp1Yu4W9CtPsP.PAD8x7Mmfwp5kSc2OnbAo7bRzOWIZFa','dnizetic851@gmail.com',1,0,NULL,NULL,NULL,NULL,NULL,'127.0.0.1','2017-01-09 16:04:05',NULL,NULL,'2017-01-07 16:01:26','2017-01-09 15:04:05');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -170,4 +171,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-07 18:27:35
+-- Dump completed on 2017-01-09 16:12:32
