@@ -1,6 +1,233 @@
-<?php if ($this->is_logged_in): ?>
+<div class="row">
+    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+        <h1 class="page-title txt-color-blueDark">
+            <i class="fa fa-home fa-fw "></i> 
+            Homepage
+            <span>> 
+                Login / Register
+            </span>
+        </h1>
+    </div>
+</div>
+
+<section id="widget-grid">
+    <div class="row">
+        <article class="col-sm-12 col-md-12 col-lg-6 sortable-grid ui-sortable">
+
+
+            <!-- Widget ID (each widget will need unique ID)-->
+            <div class="jarviswidget" id="wid-id-0" data-widget-colorbutton="false" data-widget-editbutton="false" role="widget">
+                <!-- widget options:
+                usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+    
+                data-widget-colorbutton="false"
+                data-widget-editbutton="false"
+                data-widget-togglebutton="false"
+                data-widget-deletebutton="false"
+                data-widget-fullscreenbutton="false"
+                data-widget-custombutton="false"
+                data-widget-collapsed="true"
+                data-widget-sortable="false"
+    
+                -->
+                <header role="heading"><div class="jarviswidget-ctrls" role="menu">   
+                        <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen"><i class="fa fa-expand "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete"><i class="fa fa-times"></i></a></div>
+                    <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
+                    <h2>User Login</h2>
+
+                    <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+                </header>
+
+                <!-- widget div-->
+                <div role="content">
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body">
+
+                        <form>
+
+                            <fieldset>
+                                <input name="authenticity_token" type="hidden">
+                                <div class="form-group">
+                                    <label>Login or email</label>
+                                    <input class="form-control" placeholder="Text field" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input class="form-control" placeholder="Password" type="password" value="mypassword">
+                                </div>
+                            </fieldset>
+                            <div class="form-actions">
+                                <div class="btn btn-primary btn-lg">
+                                    <i class="fa fa-save"></i>
+                                    Login
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+            <!-- end widget -->
+
+
+        </article>
+
+
+        <article class="col-sm-12 col-md-12 col-lg-6 sortable-grid ui-sortable">
+
+            <!-- Widget ID (each widget will need unique ID)-->
+            <div class="jarviswidget" id="wid-id-3" data-widget-colorbutton="false" data-widget-editbutton="false" role="widget">
+                <!-- widget options:
+                usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+    
+                data-widget-colorbutton="false"
+                data-widget-editbutton="false"
+                data-widget-togglebutton="false"
+                data-widget-deletebutton="false"
+                data-widget-fullscreenbutton="false"
+                data-widget-custombutton="false"
+                data-widget-collapsed="true"
+                data-widget-sortable="false"
+    
+                -->
+                <header role="heading"><div class="jarviswidget-ctrls" role="menu">   <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen"><i class="fa fa-expand "></i></a> <a href="javascript:void(0);" class="button-icon jarviswidget-delete-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Delete"><i class="fa fa-times"></i></a></div>
+                    <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
+                    <h2>Register</h2>
+
+                    <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+
+                <!-- widget div-->
+                <div role="content">
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body">
+
+                        <form>
+
+                            <fieldset>
+                                <input name="authenticity_token" type="hidden">
+                                <div class="form-group">
+                                    <label>First name</label>
+                                    <input class="form-control" placeholder="Text field" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Last name</label>
+                                    <input class="form-control" placeholder="Text field" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input class="form-control" placeholder="Text field" type="text">
+                                </div>
+                                ...
+                            </fieldset>
+                            <div class="form-actions">
+                                <div class="btn btn-primary btn-lg">
+                                    <i class="fa fa-save"></i>
+                                    Register
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+            <!-- end widget -->
+
+
+        </article>
+
+
+
+    </div>
+
+</section>
+
+
+<div id="admin_dialog" title="Admin login" style="display: none">
+
+
+    <div class="hr hr-12 hr-double"></div>
+
+    <form>
+
+        <fieldset>
+            <input name="authenticity_token" type="hidden">
+            <div class="form-group">
+                <label>Login or email</label>
+                <input class="form-control" placeholder="Text field" type="text">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input class="form-control" placeholder="Password" type="password" value="mypassword">
+            </div>
+        </fieldset>
+    </form>
+
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#admin_login").click(function () {
+            $("#admin_dialog").dialog('open');
+        });
+
+        var dialog = $("#admin_dialog").dialog({
+            autoOpen: false,
+            width: 400,
+            resizable: false,
+            modal: true,
+            buttons: [{
+                    html: "<i class='fa fa-times'></i>&nbsp; Close",
+                    "class": "btn btn-default",
+                    click: function () {
+                        $(this).dialog("close");
+
+                    }
+                }, {
+
+                    html: "<i class='fa fa-plus'></i>&nbsp; Login",
+                    "class": "btn btn-danger",
+                    click: function () {
+                        //addTab();
+                        $(this).dialog("close");
+                    }
+                }]
+        });
+    });
+
+
+</script>
+
+
+<!--<?php if ($this->is_logged_in): ?>
     <?php if ($username): ?>
-        Hi, <strong><?php echo $username; ?></strong>! <br/>
+                                                                                                Hi, <strong><?php echo $username; ?></strong>! <br/>
     <?php endif; ?>
 <?php endif; ?>
 
@@ -25,4 +252,4 @@ Welcome to the index page.
     <?php echo anchor('/auth/login/', 'Login'); ?> <br/>
     <?php echo anchor('/auth/login/', 'Admin login'); ?> <br/>
     <?php echo anchor('/auth/register/', 'Register'); ?> <br/>
-<?php endif; ?>
+<?php endif; ?> -->

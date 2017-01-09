@@ -56,6 +56,14 @@ $template_path = $this->template_path;
 
          <?php echo $_styles; ?>
         
+
+        <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+            if (!window.jQuery) {
+                document.write('<script src="<?php echo $this->template_path; ?>js/libs/jquery-2.1.1.min.js"><\/script>');
+            }
+        </script>
     </head>
     
 
@@ -105,13 +113,6 @@ $template_path = $this->template_path;
         <!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
         <!--<script data-pace-options='{ "restartOnRequestAfter": true }' src="<?php echo $this->template_path; ?>js/plugin/pace/pace.min.js"></script>-->
 
-        <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script>
-            if (!window.jQuery) {
-                document.write('<script src="<?php echo $this->template_path; ?>js/libs/jquery-2.1.1.min.js"><\/script>');
-            }
-        </script>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
         <script>
@@ -173,7 +174,7 @@ $template_path = $this->template_path;
 
         <!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
         <!-- Voice command : plugin -->
-        <!--<script src="js/speech/voicecommand.min.js"></script>-->
+        <!--<script src="<?php echo $this->template_path; ?>js/speech/voicecommand.min.js"></script>-->
 
         <!-- SmartChat UI : plugin -->
         <script src="<?php echo $this->template_path; ?>js/smart-chat-ui/smart.chat.ui.min.js"></script>
