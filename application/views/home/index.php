@@ -51,26 +51,33 @@
                     <!-- widget content -->
                     <div class="widget-body">
 
-                        <form>
+                        <?php echo form_open('/auth/login'); ?>
 
-                            <fieldset>
-                                <input name="authenticity_token" type="hidden">
-                                <div class="form-group">
-                                    <label>Login or email</label>
-                                    <input class="form-control" placeholder="Text field" type="text">
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="form-control" placeholder="Password" type="password" value="mypassword">
-                                </div>
-                            </fieldset>
-                            <div class="form-actions">
-                                <div class="btn btn-primary btn-lg">
-                                    <i class="fa fa-save"></i>
-                                    Login
+                        <fieldset>
+                            <input name="authenticity_token" type="hidden">
+                            <div class="form-group">
+                                <label>Login or email</label>
+                                <input class="form-control" type="text" name="login" value="" id="login" maxlength="80" size="30">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control" type="password" name="password" value="" id="password" size="30">
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember" value="1" id="remember">
+                                        Remember me </label>
                                 </div>
                             </div>
-                        </form>
+                        </fieldset>
+                        <div class="form-actions">
+                            <button class="btn btn-primary btn-lg" type="submit">
+                                <i class="fa fa-save"></i>
+                                Login
+                            </button>
+                        </div>
+                        <?php echo form_close(); ?>
 
                     </div>
                     <!-- end widget content -->
@@ -227,7 +234,7 @@
 
 <!--<?php if ($this->is_logged_in): ?>
     <?php if ($username): ?>
-                                                                                                Hi, <strong><?php echo $username; ?></strong>! <br/>
+                                                                                                                                                Hi, <strong><?php echo $username; ?></strong>! <br/>
     <?php endif; ?>
 <?php endif; ?>
 

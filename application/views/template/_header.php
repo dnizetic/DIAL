@@ -119,16 +119,18 @@
         <!-- logout button -->
         <?php if ($this->is_logged_in): ?>
             <div id="logout" class="btn-header transparent pull-right">
-                <span> <a href="login.html" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
+                <span> <a href="auth/logout" title="Logout"><i class="fa fa-sign-out"></i></a> </span>
             </div>
+        <?php else: ?>
+            <!-- login button -->
+            <div id="admin_login" class="btn-header transparent pull-right">
+                <span> <a href="#" title="Sign In"><i class="fa fa-sign-in"></i></a> </span>
+            </div>
+            <!-- end login button -->
         <?php endif; ?>
         <!-- end logout button -->
 
-        <!-- login button -->
-        <div id="admin_login" class="btn-header transparent pull-right">
-            <span> <a href="#" title="Sign In"><i class="fa fa-sign-in"></i></a> </span>
-        </div>
-        <!-- end login button -->
+
 
         <!-- search mobile button (this is hidden till mobile view port) -->
         <div id="search-mobile" class="btn-header transparent pull-right">
